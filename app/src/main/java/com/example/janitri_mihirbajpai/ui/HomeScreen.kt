@@ -1,4 +1,4 @@
-package com.example.janitri_mihirbajpai
+package com.example.janitri_mihirbajpai.ui
 
 import android.widget.Toast
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -52,6 +52,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.room.Room
+import com.example.janitri_mihirbajpai.model.ColorData
+import com.example.janitri_mihirbajpai.data.ColorDatabase
+import com.example.janitri_mihirbajpai.repository.ColorRepository
+import com.example.janitri_mihirbajpai.viewmodel.ColorViewModel
+import com.example.janitri_mihirbajpai.viewmodel.ColorViewModelFactory
+import com.example.janitri_mihirbajpai.R
 import com.example.janitri_mihirbajpai.ui.theme.Purple40
 import com.example.janitri_mihirbajpai.ui.theme.PurpleGrey40
 import com.example.janitri_mihirbajpai.ui.theme.SyncColor
@@ -72,7 +78,11 @@ fun HomeScreen() {
     val repository = ColorRepository(database.colorDao())
     val colorViewModel: ColorViewModel = viewModel(factory = ColorViewModelFactory(repository))
 
+    // Locally stored colors
     val colorsList by colorViewModel.allColors.observeAsState(emptyList())
+
+    // Data stored in cloud
+    val fetchedColors by colorViewModel.fetchedColors.observeAsState(emptyList())
 
     // Animate cloud store icon for 1 second
     var isAnimating by remember { mutableStateOf(false) }
@@ -102,7 +112,7 @@ fun HomeScreen() {
                                                 Toast
                                                     .makeText(
                                                         context,
-                                                        "Colors stored in the cloud.",
+                                                        "All ${colorsList.size - fetchedColors.size} colors stored in the cloud.",
                                                         Toast.LENGTH_SHORT
                                                     )
                                                     .show()
@@ -121,7 +131,7 @@ fun HomeScreen() {
                             }
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(text = "${colorsList.size}", color = Color.White, fontSize = 18.sp)
+                            Text(text = "${colorsList.size - fetchedColors.size}", color = Color.White, fontSize = 18.sp)
                             Spacer(modifier = Modifier.width(8.dp))
                             Icon(
                                 painter = painterResource(id = R.drawable.ic_sync),
@@ -184,7 +194,7 @@ fun HomeScreen() {
 fun ColorDataGrid(
     colors: List<ColorData>
 ) {
-    LazyColumn(modifier = Modifier.padding(8.dp)) {
+    LazyColumn() {
         items(colors.chunked(COLUMN_COUNT)) { rowColors ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 for (colorData in rowColors) {

@@ -1,4 +1,4 @@
-package com.example.janitri_mihirbajpai
+package com.example.janitri_mihirbajpai.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

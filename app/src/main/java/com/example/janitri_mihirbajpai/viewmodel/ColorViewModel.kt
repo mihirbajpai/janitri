@@ -1,6 +1,13 @@
-package com.example.janitri_mihirbajpai
+package com.example.janitri_mihirbajpai.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
+import com.example.janitri_mihirbajpai.model.CloudColorData
+import com.example.janitri_mihirbajpai.model.ColorData
+import com.example.janitri_mihirbajpai.repository.ColorRepository
+import com.example.janitri_mihirbajpai.utils.Utils
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -20,5 +27,7 @@ class ColorViewModel(private val repository: ColorRepository) : ViewModel() {
     fun storeColors(colorsList: List<ColorData>): LiveData<Boolean> {
         return repository.storeToCloud(colorsList)
     }
+
+    val fetchedColors: LiveData<List<CloudColorData>> = repository.fetchColorsFromCloud()
 }
 

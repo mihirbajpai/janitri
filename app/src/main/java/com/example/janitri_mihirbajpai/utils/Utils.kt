@@ -1,10 +1,11 @@
-package com.example.janitri_mihirbajpai
+package com.example.janitri_mihirbajpai.utils
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import kotlin.random.Random
 
 object Utils{
+    // Generates random color hexcode
     fun generateRandomColorHex(): String {
         val random = Random(System.currentTimeMillis())
         val color = Color(

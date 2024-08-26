@@ -71,16 +71,16 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Firebase
-    implementation(libs.firebase.analytics)
-    implementation(libs.firebase.bom)
+    // Firebase Analytics
+    implementation("com.google.firebase:firebase-analytics:22.1.0")
+    implementation("com.google.firebase:firebase-bom:33.2.0")
 
-    //Room Database
-    implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
-    implementation(libs.room.ktx)
+    // Room Database
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
 
-    // ViewModel
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    // Lifecycle ViewModel for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
 
 }

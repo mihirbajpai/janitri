@@ -1,8 +1,9 @@
-package com.example.janitri_mihirbajpai
+package com.example.janitri_mihirbajpai.data
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.janitri_mihirbajpai.model.ColorData
 import kotlinx.coroutines.flow.Flow
 
 @Dao
