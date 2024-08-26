@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "551379538554",
+    "project_id": "janitri-f6144",
+    "storage_bucket": "janitri-f6144.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551379538554:android:668e77042947e1eb22e1c3",
+        "android_client_info": {
+          "package_name": "com.example.janitri_mihirbajpai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0PJvzuuTCR_hId4mqcFa3B-SX5zK9ZJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Janitri - Mihir Bajpai</string>
+    <string name="color_app">Color App</string>
+    <string name="add_color">Add Color</string>
+    <string name="sync_icon">Sync Icon</string>
+    <string name="created_at">Created at</string>
+</resources>
